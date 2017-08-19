@@ -42,7 +42,17 @@ function isLoggedIn(user) {
 }
 
 function isLoggedOut() {
-    $("#login-button").show(); 
+    $("#login-button").show();
     $("#logout-button").hide();
     $("#loggedIn").html("");
+}
+
+function logOut() {
+    firebase.auth().signOut()
+
+        .then(function () {
+            window.location.reload();
+        }, function (error) {
+            console.log(error);
+        });
 }

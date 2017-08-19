@@ -7,7 +7,7 @@ provider.addScope('rsvp_event');
 
 
 provider.setCustomParameters({
-    'display': 'redirect'
+    'display': 'popup'
 });
 
 function fbLogin() {
@@ -25,6 +25,5 @@ function fbLogin() {
         var email = error.email;
         // The firebase.auth.AuthCredential type that was used.
         var credential = error.credential;
-        // ...
     });
 }

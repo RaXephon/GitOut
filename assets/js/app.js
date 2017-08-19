@@ -17,11 +17,16 @@ provider.addScope('email');
 provider.addScope('rsvp_event');
 */
 function fbLogin() {
-    firebase.auth().signInWithRedirect(provider).then(function (result) {
-        var token = result.credential.accessToken;
+    firebase.auth().signInWithRedirect(provider);
+
+    firebase.auth().getRedirectResult().then(function (result) {
+        if (result.credential) {
+            // This gives you a Facebook Access Token. You can use it to access the Facebook API.
+            var token = result.credential.accessToken;
+            // ...
+        }
         // The signed-in user info.
         var user = result.user;
-
         console.log(user);
     }).catch(function (error) {
         // Handle Errors here.
@@ -31,5 +36,6 @@ function fbLogin() {
         var email = error.email;
         // The firebase.auth.AuthCredential type that was used.
         var credential = error.credential;
+        // ...
     });
 }

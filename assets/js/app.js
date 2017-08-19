@@ -9,14 +9,15 @@ var config = {
 };
 firebase.initializeApp(config);
 
-var provider = new firebase.auth.FacebookAuthProvider();
-/*provider.addScope('user_location');
-provider.addScope('public_profile');
-provider.addScope('user_friends');
-provider.addScope('email');
-provider.addScope('rsvp_event');
-*/
+
 function fbLogin() {
+    var provider = new firebase.auth.FacebookAuthProvider();
+    provider.addScope('user_location');
+    provider.addScope('public_profile');
+    provider.addScope('user_friends');
+    provider.addScope('email');
+    provider.addScope('rsvp_event');
+
     firebase.auth().signInWithRedirect(provider);
 
     firebase.auth().getRedirectResult().then(function (result) {

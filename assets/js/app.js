@@ -19,7 +19,7 @@ provider.addScope('rsvp_event');
 
 function logIn() {
 
-    firebase.auth().signInWithPopup(provider).then(function (result) {
+    firebase.auth().signInWithRedirect(provider).then(function (result) {
         var user = result.user;
         isLoggedIn(user);
     }).catch(function (error) {

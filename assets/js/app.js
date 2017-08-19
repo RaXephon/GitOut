@@ -36,11 +36,13 @@ firebase.auth().onAuthStateChanged(function (user) {
 });
 
 function isLoggedIn(user) {
-    $("login-button").hide();
+    $("#login-button").hide();
+    $("#logout-button").show();
     $("#loggedIn").html("Logged in as: " + user.displayName);
 }
 
 function isLoggedOut() {
-    $("login-button").show();
+    $("#login-button").show(); 
+    $("#logout-button").hide();
     $("#loggedIn").html("");
 }

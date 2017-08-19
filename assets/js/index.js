@@ -37,22 +37,23 @@ firebase.auth().onAuthStateChanged(function (user) {
 
 function isLoggedIn(user) {
     $("#login-button").hide();
-    $("#logout-button").show();
+    $("#logged-in-view").show();
     $("#loggedIn").html("Logged in as: " + user.displayName);
 }
 
 function isLoggedOut() {
     $("#login-button").show();
-    $("#logout-button").hide();
+    $("#logged-in-view").hide();
     $("#loggedIn").html("");
 }
 
 function logOut() {
     firebase.auth().signOut()
-
         .then(function () {
             window.location.reload();
         }, function (error) {
             console.log(error);
         });
 }
+
+//End Dependencies

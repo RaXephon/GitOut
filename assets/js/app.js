@@ -10,7 +10,7 @@ var config = {
 firebase.initializeApp(config);
 
 
-const provider = new firebase.auth.GoogleAuthProvider();
+const provider = new firebase.auth.FacebookAuthProvider();
 
 function logIn() {
 
